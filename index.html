@@ -2,260 +2,392 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>URBAN CUTS | Barbería</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>URBAN CUTS | Barbería Premium</title>
+<meta name="description" content="Cortes modernos, estilo y precisión. Reserva tu cita en Urban Cuts.">
 
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+<style>
+:root {
+  --gold: #d8b56a;
+  --black: #0c0c0c;
+  --card: #171717;
+  --muted: #aaa;
+}
 
-        body {
-            background: #101010;
-            color: #f5f5f5;
-            font-family: Arial, sans-serif;
-        }
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 22px 8%;
-            border-bottom: 1px solid #292929;
-        }
+html { scroll-behavior: smooth; }
 
-        .logo {
-            font-size: 23px;
-            font-weight: bold;
-            letter-spacing: 2px;
-        }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--black);
+  color: white;
+  line-height: 1.6;
+}
 
-        .logo span {
-            color: #d6ad60;
-        }
+a { color: inherit; text-decoration: none; }
 
-        nav a {
-            color: #ddd;
-            text-decoration: none;
-            margin-left: 22px;
-            font-size: 14px;
-        }
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 8%;
+  border-bottom: 1px solid #292929;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(12,12,12,.95);
+  backdrop-filter: blur(10px);
+}
 
-        .hero {
-            min-height: 470px;
-            padding: 100px 8%;
-            display: flex;
-            align-items: center;
-            background:
-                linear-gradient(90deg, #101010 15%, #101010dd 55%, #10101055),
-                url("https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1600&q=80")
-                center/cover;
-        }
+.logo {
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
 
-        .hero-content {
-            max-width: 560px;
-        }
+.logo span { color: var(--gold); }
 
-        .etiqueta {
-            color: #d6ad60;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            font-size: 12px;
-        }
+nav { display: flex; gap: 25px; align-items: center; }
+nav a:hover { color: var(--gold); }
 
-        h1 {
-            font-size: clamp(42px, 7vw, 76px);
-            line-height: 1.05;
-            margin: 20px 0;
-        }
+.btn {
+  display: inline-block;
+  background: var(--gold);
+  color: #111;
+  padding: 13px 22px;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: .25s;
+  border: none;
+  cursor: pointer;
+}
 
-        h1 span {
-            color: #d6ad60;
-        }
+.btn:hover {
+  transform: translateY(-3px);
+  background: #f0d18a;
+  box-shadow: 0 8px 25px #d8b56a30;
+}
 
-        .hero p {
-            color: #c1c1c1;
-            line-height: 1.8;
-        }
+.hero {
+  min-height: 580px;
+  display: flex;
+  align-items: center;
+  padding: 90px 8%;
+  background:
+    linear-gradient(90deg, #0c0c0c 10%, #0c0c0cdd 48%, #0c0c0c22),
+    url("https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1800&q=85")
+    center/cover;
+}
 
-        .boton {
-            display: inline-block;
-            margin-top: 28px;
-            padding: 15px 24px;
-            background: #d6ad60;
-            color: #101010;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 4px;
-        }
+.hero-content { max-width: 620px; animation: appear .9s ease; }
 
-        .boton:hover {
-            background: #f0ce8a;
-        }
+.eyebrow {
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 12px;
+  font-weight: bold;
+}
 
-        .servicios {
-            padding: 70px 8%;
-        }
+h1 {
+  font-size: clamp(42px, 7vw, 76px);
+  line-height: 1.05;
+  margin: 18px 0;
+}
 
-        .subtitulo {
-            color: #d6ad60;
-            font-size: 12px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-        }
+h1 span { color: var(--gold); }
 
-        h2 {
-            font-size: 34px;
-            margin: 12px 0 30px;
-        }
+.hero p { color: #ccc; max-width: 470px; margin-bottom: 28px; }
 
-        .tarjetas {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
+section { padding: 85px 8%; }
 
-        .tarjeta {
-            background: #191919;
-            padding: 28px;
-            border: 1px solid #303030;
-            border-radius: 8px;
-            transition: transform 0.2s, border-color 0.2s;
-        }
+.section-head { text-align: center; margin-bottom: 38px; }
 
-        .tarjeta:hover {
-            transform: translateY(-5px);
-            border-color: #d6ad60;
-        }
+.section-head h2 { font-size: clamp(28px, 4vw, 42px); }
+.section-head p { color: var(--muted); margin-top: 8px; }
 
-        .tarjeta h3 {
-            margin-bottom: 12px;
-        }
+.gold { color: var(--gold); }
 
-        .tarjeta p {
-            color: #aaa;
-            line-height: 1.6;
-            font-size: 14px;
-        }
+.services, .gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
 
-        .precio {
-            display: block;
-            margin-top: 22px;
-            color: #d6ad60;
-            font-size: 25px;
-            font-weight: bold;
-        }
+.service, .price-card {
+  background: var(--card);
+  padding: 27px;
+  border: 1px solid #292929;
+  border-radius: 8px;
+  transition: .3s;
+}
 
-        footer {
-            padding: 25px;
-            text-align: center;
-            color: #888;
-            border-top: 1px solid #292929;
-        }
+.service:hover, .price-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--gold);
+}
 
-        @media (max-width: 700px) {
-            header {
-                padding: 20px 5%;
-                flex-wrap: wrap;
-                gap: 18px;
-            }
+.service .symbol { font-size: 30px; margin-bottom: 12px; }
+.service h3 { margin-bottom: 8px; }
+.service p { color: var(--muted); font-size: 14px; }
 
-            nav a {
-                margin: 0 12px 0 0;
-            }
+.gallery img {
+  display: block;
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 7px;
+  transition: .35s;
+}
 
-            .hero {
-                padding: 75px 6%;
-            }
+.gallery img:hover { transform: scale(1.025); }
 
-            .servicios {
-                padding: 55px 6%;
-            }
+.price-card { text-align: center; }
+.price-card h3 { margin-bottom: 12px; }
+.price {
+  font-size: 34px;
+  color: var(--gold);
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+.price-card p { color: var(--muted); margin-bottom: 22px; }
 
-            .tarjetas {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+.booking {
+  background: linear-gradient(135deg, #19160f, #111);
+  border-top: 1px solid #3a3020;
+  border-bottom: 1px solid #3a3020;
+}
+
+.booking-wrap {
+  max-width: 650px;
+  margin: auto;
+}
+
+form {
+  display: grid;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+label { font-size: 14px; color: #ddd; }
+
+input, select {
+  width: 100%;
+  padding: 14px;
+  margin-top: 6px;
+  background: #101010;
+  border: 1px solid #393939;
+  color: white;
+  border-radius: 4px;
+  font: inherit;
+}
+
+input:focus, select:focus {
+  outline: 1px solid var(--gold);
+  border-color: var(--gold);
+}
+
+form .btn { font-size: 16px; }
+
+.note { font-size: 12px; color: var(--muted); margin-top: 12px; }
+
+footer {
+  text-align: center;
+  padding: 28px 8%;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+footer span { color: var(--gold); }
+
+.reveal {
+  animation: appear .8s ease both;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 760px) {
+  header { padding: 16px 5%; flex-wrap: wrap; gap: 12px; }
+  nav { gap: 14px; flex-wrap: wrap; font-size: 13px; }
+  nav .btn { padding: 9px 12px; }
+  .hero { padding: 75px 6%; min-height: 500px; background-position: 60% center; }
+  section { padding: 65px 6%; }
+  .services, .gallery { grid-template-columns: 1fr; }
+  .gallery img { height: 300px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
 </head>
 
 <body>
-    <header>
-        <div class="logo">URBAN <span>CUTS.</span></div>
 
-        <nav>
-            <a href="#inicio">Inicio</a>
-            <a href="#servicios">Servicios</a>
-            <a href="#contacto">Contacto</a>
-        </nav>
-    </header>
+<header>
+  <a class="logo" href="#inicio">URBAN <span>CUTS.</span></a>
+  <nav>
+    <a href="#servicios">Servicios</a>
+    <a href="#galeria">Galería</a>
+    <a href="#precios">Precios</a>
+    <a class="btn" href="#reservar">Reservar</a>
+  </nav>
+</header>
 
-    <main>
-        <section class="hero" id="inicio">
-            <div class="hero-content">
-                <span class="etiqueta">Estilo • Precisión • Actitud</span>
+<main>
+<section class="hero" id="inicio">
+  <div class="hero-content">
+    <div class="eyebrow">Tu estilo. Tu identidad.</div>
+    <h1>NO ES SOLO UN CORTE.<br><span>ES TU ESTILO.</span></h1>
+    <p>Cortes precisos, acabados impecables y atención al detalle. Descubre una nueva forma de llevar tu estilo.</p>
+    <a class="btn" href="#reservar">RESERVAR CITA ↗</a>
+  </div>
+</section>
 
-                <h1>Tu estilo.<br><span>Tus reglas.</span></h1>
+<section id="servicios">
+  <div class="section-head">
+    <div class="eyebrow">Lo que hacemos</div>
+    <h2>Servicios <span class="gold">premium</span></h2>
+    <p>Detalles que marcan la diferencia.</p>
+  </div>
 
-                <p>
-                    Más que un corte, una experiencia.
-                    Descubre tu próximo estilo con nuestro equipo
-                    de barberos.
-                </p>
+  <div class="services">
+    <article class="service">
+      <div class="symbol">✂️</div>
+      <h3>Corte moderno</h3>
+      <p>Desde fades hasta estilos clásicos, adaptados a tu personalidad.</p>
+    </article>
+    <article class="service">
+      <div class="symbol">🪒</div>
+      <h3>Barba perfecta</h3>
+      <p>Perfilado y definición para un acabado limpio y elegante.</p>
+    </article>
+    <article class="service">
+      <div class="symbol">♛</div>
+      <h3>Experiencia completa</h3>
+      <p>Corte y arreglo de barba para renovar tu imagen.</p>
+    </article>
+  </div>
+</section>
 
-                <a class="boton"
-                   href="#contacto">
-                    RESERVAR CITA ↗
-                </a>
-            </div>
-        </section>
+<section id="galeria">
+  <div class="section-head">
+    <div class="eyebrow">Inspiración</div>
+    <h2>Encuentra tu <span class="gold">estilo</span></h2>
+    <p>Una selección de estilos para inspirarte.</p>
+  </div>
 
-        <section class="servicios" id="servicios">
-            <span class="subtitulo">Lo que hacemos</span>
-            <h2>Nuestros servicios</h2>
+  <div class="gallery">
+    <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=700&q=80" alt="Corte de cabello en barbería" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=700&q=80" alt="Trabajo de barbero" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=700&q=80" alt="Interior de una barbería" loading="lazy">
+  </div>
+</section>
 
-            <div class="tarjetas">
-                <article class="tarjeta">
-                    <h3>Corte clásico</h3>
-                    <p>Un estilo limpio, elegante y adaptado a ti.</p>
-                    <span class="precio">S/ 15</span>
-                </article>
+<section id="precios">
+  <div class="section-head">
+    <div class="eyebrow">Precios de demostración</div>
+    <h2>Elige tu <span class="gold">servicio</span></h2>
+    <p>Estos precios son ejemplos; cámbialos según el negocio.</p>
+  </div>
 
-                <article class="tarjeta">
-                    <h3>Fade / Degradado</h3>
-                    <p>Transiciones precisas y un acabado moderno.</p>
-                    <span class="precio">S/ 20</span>
-                </article>
+  <div class="services">
+    <article class="price-card">
+      <h3>Corte clásico</h3>
+      <div class="price">S/ 15</div>
+      <p>Un corte limpio y bien definido.</p>
+      <a class="btn" href="#reservar">Elegir</a>
+    </article>
+    <article class="price-card">
+      <h3>Fade premium</h3>
+      <div class="price">S/ 20</div>
+      <p>Degradado preciso y acabado moderno.</p>
+      <a class="btn" href="#reservar">Elegir</a>
+    </article>
+    <article class="price-card">
+      <h3>Corte + barba</h3>
+      <div class="price">S/ 30</div>
+      <p>Un look completo de pies a cabeza... ¡bueno, de cabeza!</p>
+      <a class="btn" href="#reservar">Elegir</a>
+    </article>
+  </div>
+</section>
 
-                <article class="tarjeta">
-                    <h3>Corte + barba</h3>
-                    <p>Un servicio completo para renovar tu estilo.</p>
-                    <span class="precio">S/ 30</span>
-                </article>
-            </div>
-        </section>
+<section class="booking" id="reservar">
+  <div class="booking-wrap">
+    <div class="section-head">
+      <div class="eyebrow">Tu próxima visita</div>
+      <h2>Reserva tu <span class="gold">cita</span></h2>
+      <p>Completa tus datos y prepara tu mensaje por WhatsApp.</p>
+    </div>
 
-        <section class="servicios" id="contacto">
-            <span class="subtitulo">Estamos para atenderte</span>
-            <h2>Reserva tu próxima cita</h2>
-            <p style="color:#aaa; line-height:1.8">
-                Contáctanos para consultar horarios y disponibilidad.
-            </p>
+    <form id="booking-form">
+      <label>
+        Tu nombre
+        <input id="customer-name" type="text" placeholder="¿Cómo te llamas?" required maxlength="70">
+      </label>
 
-            <a class="boton"
-               href="https://wa.me/51999999999"
-               target="_blank"
-               rel="noopener noreferrer">
-                CONTACTAR POR WHATSAPP ↗
-            </a>
-        </section>
-    </main>
+      <label>
+        Servicio
+        <select id="customer-service" required>
+          <option value="">Selecciona un servicio</option>
+          <option>Corte clásico — S/ 15</option>
+          <option>Fade premium — S/ 20</option>
+          <option>Corte + barba — S/ 30</option>
+        </select>
+      </label>
 
-    <footer>
-        © 2026 URBAN CUTS · Proyecto de práctica web
-    </footer>
+      <label>
+        Fecha que prefieres
+        <input id="customer-date" type="date" required>
+      </label>
+
+      <button class="btn" type="submit">PREPARAR RESERVA POR WHATSAPP ↗</button>
+    </form>
+
+    <p class="note">Demo: la reserva no se confirma automáticamente. Se abrirá WhatsApp para enviar la solicitud.</p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <p><span>URBAN CUTS.</span> — Tu estilo, nuestra pasión.</p>
+  <p>Proyecto web de demostración · 2026</p>
+</footer>
+
+<script>
+const dateInput = document.getElementById("customer-date");
+const today = new Date();
+const localToday = new Date(today.getTime() - today.getTimezoneOffset() * 60000)
+  .toISOString().split("T")[0];
+dateInput.min = localToday;
+
+document.getElementById("booking-form").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const name = document.getElementById("customer-name").value.trim();
+  const service = document.getElementById("customer-service").value;
+  const date = dateInput.value;
+
+  if (!name || !service || !date) return;
+
+  const phone = "51999999999"; // Número de ejemplo: reemplazar por uno autorizado.
+  const message = `Hola, Urban Cuts. Soy ${name}. Quisiera solicitar una cita para ${service} el ${date}. ¿Tienen disponibilidad?`;
+  const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+
+  window.open(url, "_blank", "noopener,noreferrer");
+});
+</script>
+
 </body>
 </html>
+
