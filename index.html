@@ -3,239 +3,108 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b0b0b">
 <title>URBAN CUTS | Barbería Premium</title>
-<meta name="description" content="Cortes modernos, estilo y precisión. Reserva tu cita en Urban Cuts.">
+<meta name="description" content="Descubre tu próximo estilo en Urban Cuts. Explora cortes y solicita tu cita.">
 
 <style>
 :root {
-  --gold: #d8b56a;
-  --black: #0c0c0c;
-  --card: #171717;
-  --muted: #aaa;
+  --gold:#dfbd72;
+  --bg:#0b0b0b;
+  --panel:#171717;
+  --muted:#b0b0b0;
 }
-
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
-html { scroll-behavior: smooth; }
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: var(--black);
-  color: white;
-  line-height: 1.6;
-}
-
-a { color: inherit; text-decoration: none; }
-
+* {box-sizing:border-box;margin:0;padding:0}
+html {scroll-behavior:smooth;scroll-padding-top:85px}
+body {font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:#fff;line-height:1.6}
+a {color:inherit;text-decoration:none}
+button,input,select {font:inherit}
+button,a { -webkit-tap-highlight-color:transparent }
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 8%;
-  border-bottom: 1px solid #292929;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  background: rgba(12,12,12,.95);
-  backdrop-filter: blur(10px);
+  position:sticky;top:0;z-index:10;
+  display:flex;justify-content:space-between;align-items:center;
+  gap:20px;padding:17px 7%;
+  background:#0b0b0bf2;border-bottom:1px solid #292929;
+  backdrop-filter:blur(12px)
 }
-
-.logo {
-  font-size: 22px;
-  font-weight: 900;
-  letter-spacing: 2px;
-}
-
-.logo span { color: var(--gold); }
-
-nav { display: flex; gap: 25px; align-items: center; }
-nav a:hover { color: var(--gold); }
-
+.logo {font-weight:900;font-size:22px;letter-spacing:2px}
+.gold {color:var(--gold)}
+nav {display:flex;align-items:center;gap:22px;font-size:14px}
+nav a:hover {color:var(--gold)}
 .btn {
-  display: inline-block;
-  background: var(--gold);
-  color: #111;
-  padding: 13px 22px;
-  border-radius: 4px;
-  font-weight: bold;
-  transition: .25s;
-  border: none;
-  cursor: pointer;
+  display:inline-block;background:var(--gold);color:#111;
+  padding:13px 20px;border:0;border-radius:4px;
+  font-weight:800;cursor:pointer;transition:.25s
 }
-
-.btn:hover {
-  transform: translateY(-3px);
-  background: #f0d18a;
-  box-shadow: 0 8px 25px #d8b56a30;
-}
-
+.btn:hover {transform:translateY(-3px);box-shadow:0 8px 25px #dfbd7230}
 .hero {
-  min-height: 580px;
-  display: flex;
-  align-items: center;
-  padding: 90px 8%;
-  background:
-    linear-gradient(90deg, #0c0c0c 10%, #0c0c0cdd 48%, #0c0c0c22),
-    url("https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1800&q=85")
-    center/cover;
+  min-height:570px;display:flex;align-items:center;padding:85px 8%;
+  background:linear-gradient(90deg,#0b0b0b 10%,#0b0b0bdc 50%,#0b0b0b35),
+  url("https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1800&q=85") center/cover
 }
-
-.hero-content { max-width: 620px; animation: appear .9s ease; }
-
-.eyebrow {
-  color: var(--gold);
-  text-transform: uppercase;
-  letter-spacing: 4px;
-  font-size: 12px;
-  font-weight: bold;
+.hero-content {max-width:650px;animation:rise .8s ease both}
+.eyebrow {font-size:12px;text-transform:uppercase;letter-spacing:4px;color:var(--gold);font-weight:bold}
+h1 {font-size:clamp(42px,7vw,78px);line-height:1.05;margin:20px 0}
+.hero p {max-width:490px;color:#ddd;margin-bottom:28px}
+section {padding:78px 8%}
+.heading {text-align:center;margin-bottom:36px}
+.heading h2 {font-size:clamp(28px,4vw,42px);margin-top:5px}
+.heading p {color:var(--muted);margin-top:8px}
+.grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.card {padding:26px;background:var(--panel);border:1px solid #292929;border-radius:8px;transition:transform .25s,border-color .25s}
+.card:hover {transform:translateY(-5px);border-color:var(--gold)}
+.card p {color:var(--muted);font-size:14px;margin-top:8px}
+.symbol {font-size:30px;margin-bottom:10px}
+.gallery-item {position:relative;overflow:hidden;border-radius:8px;background:#171717}
+.gallery-item button {display:block;width:100%;border:0;background:none;color:white;cursor:zoom-in;text-align:left}
+.gallery-item img {display:block;width:100%;height:320px;object-fit:cover;transition:transform .4s}
+.gallery-item:hover img {transform:scale(1.06)}
+.gallery-label {padding:12px 15px;font-weight:bold}
+.price {font-size:34px;color:var(--gold);font-weight:bold;margin:10px 0}
+.price-card {text-align:center}
+.booking {background:linear-gradient(135deg,#1b1811,#111);border-block:1px solid #3a3020}
+.booking-wrap {max-width:650px;margin:auto}
+form {display:grid;gap:16px}
+label {font-size:14px;color:#ddd}
+input,select {width:100%;margin-top:6px;padding:14px;background:#101010;color:white;border:1px solid #444;border-radius:4px}
+input:focus,select:focus {outline:1px solid var(--gold);border-color:var(--gold)}
+.note {font-size:12px;color:var(--muted);margin-top:13px}
+#form-status {font-size:14px;color:var(--gold);margin-top:12px}
+.faq details {padding:17px 0;border-bottom:1px solid #333}
+.faq summary {cursor:pointer;font-weight:bold}
+.faq details p {color:var(--muted);margin-top:10px}
+footer {text-align:center;padding:30px 7%;font-size:13px;color:var(--muted);border-top:1px solid #292929}
+#lightbox {
+  position:fixed;inset:0;z-index:30;background:#000e;
+  display:none;align-items:center;justify-content:center;padding:20px
 }
-
-h1 {
-  font-size: clamp(42px, 7vw, 76px);
-  line-height: 1.05;
-  margin: 18px 0;
+#lightbox.open {display:flex}
+#lightbox img {max-width:95%;max-height:82vh;border-radius:8px;object-fit:contain}
+#close-lightbox {position:absolute;right:20px;top:15px;background:#222;color:white;border:1px solid #555;border-radius:50%;width:44px;height:44px;font-size:24px;cursor:pointer}
+.reveal {opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}
+.reveal.visible {opacity:1;transform:translateY(0)}
+@keyframes rise {from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:760px) {
+  header {padding:14px 5%;flex-wrap:wrap}
+  nav {gap:13px;flex-wrap:wrap;font-size:13px}
+  nav .btn {padding:8px 11px}
+  .hero {min-height:490px;padding:65px 6%;background-position:60% center}
+  section {padding:60px 6%}
+  .grid {grid-template-columns:1fr}
+  .gallery-item img {height:300px}
 }
-
-h1 span { color: var(--gold); }
-
-.hero p { color: #ccc; max-width: 470px; margin-bottom: 28px; }
-
-section { padding: 85px 8%; }
-
-.section-head { text-align: center; margin-bottom: 38px; }
-
-.section-head h2 { font-size: clamp(28px, 4vw, 42px); }
-.section-head p { color: var(--muted); margin-top: 8px; }
-
-.gold { color: var(--gold); }
-
-.services, .gallery {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 22px;
-}
-
-.service, .price-card {
-  background: var(--card);
-  padding: 27px;
-  border: 1px solid #292929;
-  border-radius: 8px;
-  transition: .3s;
-}
-
-.service:hover, .price-card:hover {
-  transform: translateY(-6px);
-  border-color: var(--gold);
-}
-
-.service .symbol { font-size: 30px; margin-bottom: 12px; }
-.service h3 { margin-bottom: 8px; }
-.service p { color: var(--muted); font-size: 14px; }
-
-.gallery img {
-  display: block;
-  width: 100%;
-  height: 320px;
-  object-fit: cover;
-  border-radius: 7px;
-  transition: .35s;
-}
-
-.gallery img:hover { transform: scale(1.025); }
-
-.price-card { text-align: center; }
-.price-card h3 { margin-bottom: 12px; }
-.price {
-  font-size: 34px;
-  color: var(--gold);
-  font-weight: bold;
-  margin-bottom: 12px;
-}
-.price-card p { color: var(--muted); margin-bottom: 22px; }
-
-.booking {
-  background: linear-gradient(135deg, #19160f, #111);
-  border-top: 1px solid #3a3020;
-  border-bottom: 1px solid #3a3020;
-}
-
-.booking-wrap {
-  max-width: 650px;
-  margin: auto;
-}
-
-form {
-  display: grid;
-  gap: 15px;
-  margin-top: 25px;
-}
-
-label { font-size: 14px; color: #ddd; }
-
-input, select {
-  width: 100%;
-  padding: 14px;
-  margin-top: 6px;
-  background: #101010;
-  border: 1px solid #393939;
-  color: white;
-  border-radius: 4px;
-  font: inherit;
-}
-
-input:focus, select:focus {
-  outline: 1px solid var(--gold);
-  border-color: var(--gold);
-}
-
-form .btn { font-size: 16px; }
-
-.note { font-size: 12px; color: var(--muted); margin-top: 12px; }
-
-footer {
-  text-align: center;
-  padding: 28px 8%;
-  color: var(--muted);
-  font-size: 13px;
-}
-
-footer span { color: var(--gold); }
-
-.reveal {
-  animation: appear .8s ease both;
-}
-
-@keyframes appear {
-  from { opacity: 0; transform: translateY(18px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@media (max-width: 760px) {
-  header { padding: 16px 5%; flex-wrap: wrap; gap: 12px; }
-  nav { gap: 14px; flex-wrap: wrap; font-size: 13px; }
-  nav .btn { padding: 9px 12px; }
-  .hero { padding: 75px 6%; min-height: 500px; background-position: 60% center; }
-  section { padding: 65px 6%; }
-  .services, .gallery { grid-template-columns: 1fr; }
-  .gallery img { height: 300px; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: .01ms !important;
-    transition-duration: .01ms !important;
-    scroll-behavior: auto !important;
-  }
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after {scroll-behavior:auto!important;animation:none!important;transition:none!important}
+  .reveal {opacity:1;transform:none}
 }
 </style>
 </head>
 
 <body>
-
 <header>
-  <a class="logo" href="#inicio">URBAN <span>CUTS.</span></a>
-  <nav>
+  <a class="logo" href="#inicio">URBAN <span class="gold">CUTS.</span></a>
+  <nav aria-label="Navegación principal">
     <a href="#servicios">Servicios</a>
     <a href="#galeria">Galería</a>
     <a href="#precios">Precios</a>
@@ -247,97 +116,63 @@ footer span { color: var(--gold); }
 <section class="hero" id="inicio">
   <div class="hero-content">
     <div class="eyebrow">Tu estilo. Tu identidad.</div>
-    <h1>NO ES SOLO UN CORTE.<br><span>ES TU ESTILO.</span></h1>
-    <p>Cortes precisos, acabados impecables y atención al detalle. Descubre una nueva forma de llevar tu estilo.</p>
+    <h1>NO ES SOLO UN CORTE.<br><span class="gold">ES TU ESTILO.</span></h1>
+    <p>Cortes precisos, acabados impecables y atención al detalle. Encuentra el estilo que va contigo.</p>
     <a class="btn" href="#reservar">RESERVAR CITA ↗</a>
   </div>
 </section>
 
 <section id="servicios">
-  <div class="section-head">
+  <div class="heading">
     <div class="eyebrow">Lo que hacemos</div>
     <h2>Servicios <span class="gold">premium</span></h2>
     <p>Detalles que marcan la diferencia.</p>
   </div>
-
-  <div class="services">
-    <article class="service">
-      <div class="symbol">✂️</div>
-      <h3>Corte moderno</h3>
-      <p>Desde fades hasta estilos clásicos, adaptados a tu personalidad.</p>
-    </article>
-    <article class="service">
-      <div class="symbol">🪒</div>
-      <h3>Barba perfecta</h3>
-      <p>Perfilado y definición para un acabado limpio y elegante.</p>
-    </article>
-    <article class="service">
-      <div class="symbol">♛</div>
-      <h3>Experiencia completa</h3>
-      <p>Corte y arreglo de barba para renovar tu imagen.</p>
-    </article>
+  <div class="grid">
+    <article class="card reveal"><div class="symbol">✂️</div><h3>Corte moderno</h3><p>Fades, estilos clásicos y cortes adaptados a tu personalidad.</p></article>
+    <article class="card reveal"><div class="symbol">🪒</div><h3>Arreglo de barba</h3><p>Perfilado y definición para un acabado limpio.</p></article>
+    <article class="card reveal"><div class="symbol">♛</div><h3>Corte + barba</h3><p>Una experiencia completa para renovar tu estilo.</p></article>
   </div>
 </section>
 
 <section id="galeria">
-  <div class="section-head">
+  <div class="heading">
     <div class="eyebrow">Inspiración</div>
     <h2>Encuentra tu <span class="gold">estilo</span></h2>
-    <p>Una selección de estilos para inspirarte.</p>
+    <p>Pulsa una foto para ampliarla.</p>
   </div>
-
-  <div class="gallery">
-    <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=700&q=80" alt="Corte de cabello en barbería" loading="lazy">
-    <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=700&q=80" alt="Trabajo de barbero" loading="lazy">
-    <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=700&q=80" alt="Interior de una barbería" loading="lazy">
+  <div class="grid">
+    <div class="gallery-item reveal"><button type="button" data-image="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=1200&q=85" aria-label="Ampliar foto de corte"><img loading="lazy" src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=700&q=80" alt="Corte de cabello en barbería"><div class="gallery-label">Corte moderno ↗</div></button></div>
+    <div class="gallery-item reveal"><button type="button" data-image="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=1200&q=85" aria-label="Ampliar foto del barbero"><img loading="lazy" src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=700&q=80" alt="Trabajo de barbería"><div class="gallery-label">Detalles precisos ↗</div></button></div>
+    <div class="gallery-item reveal"><button type="button" data-image="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1200&q=85" aria-label="Ampliar foto de barbería"><img loading="lazy" src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=700&q=80" alt="Interior de barbería"><div class="gallery-label">Experiencia premium ↗</div></button></div>
   </div>
 </section>
 
 <section id="precios">
-  <div class="section-head">
-    <div class="eyebrow">Precios de demostración</div>
+  <div class="heading">
+    <div class="eyebrow">Tarifas de ejemplo</div>
     <h2>Elige tu <span class="gold">servicio</span></h2>
-    <p>Estos precios son ejemplos; cámbialos según el negocio.</p>
+    <p>Precios ficticios para personalizar cuando tengas un negocio real.</p>
   </div>
-
-  <div class="services">
-    <article class="price-card">
-      <h3>Corte clásico</h3>
-      <div class="price">S/ 15</div>
-      <p>Un corte limpio y bien definido.</p>
-      <a class="btn" href="#reservar">Elegir</a>
-    </article>
-    <article class="price-card">
-      <h3>Fade premium</h3>
-      <div class="price">S/ 20</div>
-      <p>Degradado preciso y acabado moderno.</p>
-      <a class="btn" href="#reservar">Elegir</a>
-    </article>
-    <article class="price-card">
-      <h3>Corte + barba</h3>
-      <div class="price">S/ 30</div>
-      <p>Un look completo de pies a cabeza... ¡bueno, de cabeza!</p>
-      <a class="btn" href="#reservar">Elegir</a>
-    </article>
+  <div class="grid">
+    <article class="card price-card reveal"><h3>Corte clásico</h3><div class="price">S/ 15</div><p>Corte limpio y definido.</p><a class="btn choose-service" href="#reservar" data-service="Corte clásico — S/ 15">Elegir</a></article>
+    <article class="card price-card reveal"><h3>Fade premium</h3><div class="price">S/ 20</div><p>Degradado preciso y moderno.</p><a class="btn choose-service" href="#reservar" data-service="Fade premium — S/ 20">Elegir</a></article>
+    <article class="card price-card reveal"><h3>Corte + barba</h3><div class="price">S/ 30</div><p>Un look completo.</p><a class="btn choose-service" href="#reservar" data-service="Corte + barba — S/ 30">Elegir</a></article>
   </div>
 </section>
 
 <section class="booking" id="reservar">
   <div class="booking-wrap">
-    <div class="section-head">
+    <div class="heading">
       <div class="eyebrow">Tu próxima visita</div>
-      <h2>Reserva tu <span class="gold">cita</span></h2>
-      <p>Completa tus datos y prepara tu mensaje por WhatsApp.</p>
+      <h2>Solicita tu <span class="gold">cita</span></h2>
+      <p>Completa el formulario para preparar tu mensaje de WhatsApp.</p>
     </div>
-
     <form id="booking-form">
-      <label>
-        Tu nombre
-        <input id="customer-name" type="text" placeholder="¿Cómo te llamas?" required maxlength="70">
+      <label>Tu nombre
+        <input id="customer-name" type="text" placeholder="Escribe tu nombre" maxlength="70" required>
       </label>
-
-      <label>
-        Servicio
+      <label>Servicio
         <select id="customer-service" required>
           <option value="">Selecciona un servicio</option>
           <option>Corte clásico — S/ 15</option>
@@ -345,49 +180,112 @@ footer span { color: var(--gold); }
           <option>Corte + barba — S/ 30</option>
         </select>
       </label>
-
-      <label>
-        Fecha que prefieres
+      <label>Fecha que prefieres
         <input id="customer-date" type="date" required>
       </label>
-
-      <button class="btn" type="submit">PREPARAR RESERVA POR WHATSAPP ↗</button>
+      <button class="btn" type="submit">CONTINUAR POR WHATSAPP ↗</button>
     </form>
-
-    <p class="note">Demo: la reserva no se confirma automáticamente. Se abrirá WhatsApp para enviar la solicitud.</p>
+    <p id="form-status" role="status"></p>
+    <p class="note">La cita no se confirma automáticamente. WhatsApp abrirá un mensaje para que puedas revisarlo y enviarlo.</p>
   </div>
+</section>
+
+<section class="faq">
+  <div class="heading"><div class="eyebrow">Información</div><h2>Preguntas <span class="gold">frecuentes</span></h2></div>
+  <details><summary>¿Necesito reservar antes de ir?</summary><p>Envía una solicitud por WhatsApp para consultar la disponibilidad del negocio.</p></details>
+  <details><summary>¿Puedo elegir el corte que quiero?</summary><p>Sí. Puedes describir el estilo que buscas al conversar con el barbero.</p></details>
+  <details><summary>¿Estos precios son reales?</summary><p>No necesariamente: son ejemplos de esta página de demostración y deben confirmarse con el negocio.</p></details>
 </section>
 </main>
 
 <footer>
-  <p><span>URBAN CUTS.</span> — Tu estilo, nuestra pasión.</p>
-  <p>Proyecto web de demostración · 2026</p>
+  <p><span class="gold">URBAN CUTS.</span> — Tu estilo, tu identidad.</p>
+  <p>Proyecto de demostración · 2026</p>
 </footer>
 
-<script>
-const dateInput = document.getElementById("customer-date");
-const today = new Date();
-const localToday = new Date(today.getTime() - today.getTimezoneOffset() * 60000)
-  .toISOString().split("T")[0];
-dateInput.min = localToday;
+<div id="lightbox" role="dialog" aria-modal="true" aria-label="Imagen ampliada">
+  <button id="close-lightbox" type="button" aria-label="Cerrar imagen">×</button>
+  <img id="lightbox-img" alt="Foto ampliada de la galería">
+</div>
 
-document.getElementById("booking-form").addEventListener("submit", function(event) {
+<script>
+// Efecto de aparición al desplazarse.
+const revealObserver = "IntersectionObserver" in window
+  ? new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 })
+  : null;
+
+document.querySelectorAll(".reveal").forEach(el => {
+  if (revealObserver) revealObserver.observe(el);
+  else el.classList.add("visible");
+});
+
+// Galería ampliable.
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+const closeLightbox = document.getElementById("close-lightbox");
+
+document.querySelectorAll("[data-image]").forEach(button => {
+  button.addEventListener("click", () => {
+    lightboxImg.src = button.dataset.image;
+    lightboxImg.alt = button.querySelector("img").alt;
+    lightbox.classList.add("open");
+    closeLightbox.focus();
+  });
+});
+
+function closeGallery() {
+  lightbox.classList.remove("open");
+  lightboxImg.src = "";
+}
+closeLightbox.addEventListener("click", closeGallery);
+lightbox.addEventListener("click", event => {
+  if (event.target === lightbox) closeGallery();
+});
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape") closeGallery();
+});
+
+// Los botones de precios seleccionan automáticamente el servicio.
+document.querySelectorAll(".choose-service").forEach(link => {
+  link.addEventListener("click", () => {
+    document.getElementById("customer-service").value = link.dataset.service;
+  });
+});
+
+// Fecha mínima: hoy, usando la fecha local.
+const dateInput = document.getElementById("customer-date");
+const now = new Date();
+dateInput.min = new Date(now.getTime() - now.getTimezoneOffset() * 60000)
+  .toISOString().slice(0, 10);
+
+// Reservas: reemplaza el número de ejemplo por uno autorizado.
+document.getElementById("booking-form").addEventListener("submit", event => {
   event.preventDefault();
 
   const name = document.getElementById("customer-name").value.trim();
   const service = document.getElementById("customer-service").value;
   const date = dateInput.value;
+  const status = document.getElementById("form-status");
 
-  if (!name || !service || !date) return;
+  if (!name || !service || !date) {
+    status.textContent = "Completa todos los campos.";
+    return;
+  }
 
-  const phone = "51999999999"; // Número de ejemplo: reemplazar por uno autorizado.
+  const phone = "51999999999"; // EJEMPLO. Cambiar por un número autorizado.
   const message = `Hola, Urban Cuts. Soy ${name}. Quisiera solicitar una cita para ${service} el ${date}. ¿Tienen disponibilidad?`;
   const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 
+  status.textContent = "Se abrirá WhatsApp. Revisa el destinatario antes de enviar.";
   window.open(url, "_blank", "noopener,noreferrer");
 });
 </script>
-
 </body>
 </html>
-
